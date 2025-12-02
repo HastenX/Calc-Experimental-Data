@@ -8,7 +8,7 @@ public class Main {
     public static final int maxTrail=3;
     public static final int maxSides=7;
     private static boolean isBlock;
-    private static double averageAccel;
+    private static double totalAccel;
 
     public static void main(String[] args) {
         sides = new CompleteSide[maxSides];
@@ -20,13 +20,13 @@ public class Main {
             System.out.println("-\n");
             trails = new Trail[maxTrail];
             for(int j=0; j< maxTrail; j++){
-                System.out.println("Trail "+j+":");
+                System.out.println("Trail "+(j+1)+":");
                 System.out.println("Enter Accel(cm):");
-                averageAccel=0;
+                totalAccel=0;
                 for(int k=0; k <3; k++) {
-                    averageAccel+= scan.nextDouble()/100;
+                    totalAccel+= scan.nextDouble()/100;
                 }
-                trails[j] = new Trail(averageAccel/3, isBlock);
+                trails[j] = new Trail(totalAccel/3, isBlock);
             }
             sides[i] = new CompleteSide(trails);
         }

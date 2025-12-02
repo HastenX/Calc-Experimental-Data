@@ -16,6 +16,7 @@ public class CompleteSide extends Trail{
             System.out.println("Average Accel: " + trail.accel);
             System.out.println("Average Friction: " + trail.fric);
         }
+        System.out.println("Total Average Friction: " + Trail.averageFriction(trails));
         System.out.println("\n");
     }
 }
