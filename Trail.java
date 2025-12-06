@@ -17,9 +17,9 @@ public class Trail {
 
     public Trail(double accel, boolean isBlock) {
         weightNum %= Main.maxTrail;
-        this.totalWeight = massOfHanging + (isBlock ? massOfBlock: massOfRect) +(itterateWeight*weightNum);
+        this.totalWeight = (isBlock ? massOfBlock: massOfRect) +(itterateWeight*weightNum);
 
-        this.fric =(((totalWeight*accel)+(massOfHanging*gravityAccel))/(massOfBlock*gravityAccel));
+        this.fric =(((massOfHanging*gravityAccel)-(totalWeight*accel))/(totalWeight*gravityAccel));
         this.accel = accel;
         weightNum++;
     }

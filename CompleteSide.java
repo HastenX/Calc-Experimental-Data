@@ -13,8 +13,9 @@ public class CompleteSide extends Trail{
         System.out.println("Side "+ (this.side+1)+ ":");
         for(Trail trail: trails) {
             System.out.println("Weight "+ (trail.totalWeight) +":");
-            System.out.println("Average Accel: " + trail.accel);
-            System.out.println("Average Friction: " + trail.fric);
+            System.out.println("Friction Force: " + (((massOfHanging*gravityAccel)-(trail.totalWeight*trail.accel))));
+            System.out.println("Normal Force: " + trail.accel);
+            System.out.println("Average Friction coefficent: " + trail.fric);
         }
         System.out.println("Total Average Friction: " + Trail.averageFriction(trails));
         System.out.println("\n");
