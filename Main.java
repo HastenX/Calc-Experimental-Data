@@ -22,8 +22,9 @@ public class Main {
             for(int j=0; j< maxTrail; j++){
                 System.out.println("Trail "+(j+1)+":");
                 System.out.println("Enter Accel(cm):");
+                totalAccel=0;
                 for(int k=0; k< maxTrail; k++) {
-                    totalAccel+= scan.nextDouble()/100;
+                    totalAccel+= scan.nextDouble();
                 }
                 trails[j] = new Trail(totalAccel/3, isBlock);
             }
