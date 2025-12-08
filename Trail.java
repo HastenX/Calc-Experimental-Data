@@ -1,5 +1,6 @@
 public class Trail {
     public double totalWeight;
+    public double massOfDragWeiight;
     public double fric;
     public double accel;
 
@@ -17,9 +18,11 @@ public class Trail {
 
     public Trail(double accel, boolean isBlock) {
         weightNum %= Main.maxTrail;
-        this.totalWeight = (isBlock ? massOfBlock: massOfRect) +(itterateWeight*weightNum);
 
-        this.fric =(((massOfHanging*gravityAccel)-(totalWeight*accel))/(totalWeight*gravityAccel));
+        this.massOfDragWeiight = (isBlock ? massOfBlock: massOfRect) +(itterateWeight*weightNum);
+        this.totalWeight = massOfDragWeiight + massOfHanging;
+
+        this.fric =-(((totalWeight*accel)-massOfHanging*gravityAccel))/(massOfDragWeiight*gravityAccel);
         this.accel = accel;
         weightNum++;
     }
