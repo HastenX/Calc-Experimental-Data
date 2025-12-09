@@ -1,7 +1,7 @@
 public class Trail {
     public double totalMass;
     public double massOfDrag;
-    public double fric;
+    public double fricCoef;
     public double accel;
 
     public static int totalTrails;
@@ -22,7 +22,7 @@ public class Trail {
         this.massOfDrag = ((isBlock ? massOfBlock: massOfRect) +(itterateWeight*weightNum));
         this.totalMass = (massOfDrag + massOfHanging);
         this.accel = accel/100;
-        this.fric = -((totalMass*this.accel)-(massOfHanging*gravityAccel))/(massOfDrag*gravityAccel);
+        this.fricCoef = -((totalMass*this.accel)-(massOfHanging*gravityAccel))/(massOfDrag*gravityAccel);
         System.out.println((massOfDrag*gravityAccel));
         weightNum++;
     }
@@ -30,7 +30,7 @@ public class Trail {
     public static double averageFriction(Trail ...args) {
         double averageFric=0.0;
         for(Trail trail: args){
-            averageFric+= trail.fric;
+            averageFric+= trail.fricCoef;
         }
         return averageFric/args.length;
     }
